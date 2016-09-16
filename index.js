@@ -1,7 +1,7 @@
 var electronMenubar = require('menubar');
 
 var mb = electronMenubar({
-  index: `file://${__dirname}/src/index-electron.html`
+  index: `file://${__dirname}/src/electron/index.html`
 });
 
 mb.on('ready', () => {
@@ -9,5 +9,5 @@ mb.on('ready', () => {
 });
 
 mb.on('after-create-window', () => {
-  // mb.window.openDevTools();
+  mb.window.openDevTools();
 });

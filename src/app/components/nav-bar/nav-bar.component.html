@@ -1,5 +1,5 @@
-<h2>{{ssid}}</h2>
+<h2>{{stats.SSID}}</h2>
 <h3>{{company}}</h3>
-{{macId}}
+{{stats.BSSID | uppercase}}
 <br>
-{{frequency}} | {{standard}} | {{maxBandwidth}}
+{{stats.MCS}} GHz | {{standard}} | {{stats.maxRate}} Mbps

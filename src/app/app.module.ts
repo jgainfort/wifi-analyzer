@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components';
+import { WifiStatsService } from './shared';
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import { NavBarComponent } from './components';
     AppComponent,
     NavBarComponent
   ],
+  providers: [ WifiStatsService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

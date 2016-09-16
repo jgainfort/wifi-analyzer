@@ -1,26 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { WifiStatsService, Stats } from '../../shared';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: [ './nav-bar.component.css' ]
 })
 export class NavBarComponent implements OnInit {
-  ssid: string;
-  company: string;
-  macId: string;
-  frequency: string;
-  maxBandwidth: string;
-  standard: string;
+  stats: Stats = new Stats();
+  company: string = 'test company';
+  standard: string = '802.11ac';
 
-  constructor() { }
+  constructor(private wifiStatsService: WifiStatsService) {
+    wifiStatsService.update
+      .subscribe(this.update.bind(this));
+  }
 
-  ngOnInit() {
-    this.ssid = 'NotMyWifi';
-    this.company = 'Tenda Technology Co., Ltd.';
-    this.macId = 'C8:3A:35:58:B3:35';
-    this.frequency = '5 GHz';
-    this.maxBandwidth = '1300 Mbps';
-    this.standard = '802.11ac';
+  ngOnInit() { }
+
+  update(obj: Stats) {
+    this.stats = obj;
   }
 }
